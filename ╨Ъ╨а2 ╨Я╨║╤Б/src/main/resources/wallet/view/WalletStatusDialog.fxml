@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane fx:id="dialogPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="wallet.controller.WalletStatusDialogController"
+            stylesheets="@styles.css" styleClass="form-dialog" prefWidth="500">
+    <content>
+        <VBox spacing="14">
+            <GridPane hgap="12" vgap="8" styleClass="info-grid">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="120"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="Кошелёк" styleClass="details-key" GridPane.rowIndex="0"/>
+                <Label fx:id="walletValue" styleClass="details-value" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Владелец" styleClass="details-key" GridPane.rowIndex="1"/>
+                <Label fx:id="ownerValue" styleClass="details-value" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Баланс" styleClass="details-key" GridPane.rowIndex="2"/>
+                <Label fx:id="balanceValue" styleClass="details-value" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Текущий статус" styleClass="details-key" GridPane.rowIndex="3"/>
+                <Label fx:id="currentStatusValue" styleClass="badge" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            </GridPane>
+            <VBox styleClass="form-field">
+                <Label text="Новый статус *" styleClass="form-label"/>
+                <ComboBox fx:id="statusBox" maxWidth="Infinity"/>
+                <Label fx:id="statusError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <Label styleClass="info-banner" wrapText="true"
+                   text="«Активен» → «Заблокирован» или «Закрыт». «Заблокирован» → «Активен» или «Закрыт». Закрыть можно только кошелёк с нулевым балансом, закрытый кошелёк больше не меняется."/>
+            <Label fx:id="generalError" styleClass="form-error-banner" wrapText="true"/>
+        </VBox>
+    </content>
+    <buttonTypes>
+        <ButtonType fx:id="saveButtonType" text="Сохранить" buttonData="OK_DONE"/>
+        <ButtonType text="Отмена" buttonData="CANCEL_CLOSE"/>
+    </buttonTypes>
+</DialogPane>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane fx:id="dialogPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="wallet.controller.ClientDialogController"
+            stylesheets="@styles.css" styleClass="form-dialog" prefWidth="520">
+    <content>
+        <VBox spacing="14">
+            <VBox styleClass="form-field">
+                <Label text="ФИО *" styleClass="form-label"/>
+                <TextField fx:id="nameField" promptText="Иванов Иван Иванович"/>
+                <Label text="Фамилия и имя, отчество — по желанию. Каждое слово с заглавной буквы."
+                       styleClass="hint" wrapText="true"/>
+                <Label fx:id="nameError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="form-field">
+                <Label text="Email *" styleClass="form-label"/>
+                <TextField fx:id="emailField" promptText="ivan.petrov@mail.ru"/>
+                <Label text="Должен быть уникальным: два клиента не могут иметь один email." styleClass="hint" wrapText="true"/>
+                <Label fx:id="emailError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="form-field">
+                <Label text="Телефон *" styleClass="form-label"/>
+                <TextField fx:id="phoneField" promptText="+79001110001"/>
+                <Label text="+7 и 10 цифр. Пробелы, скобки и дефисы убираются автоматически." styleClass="hint" wrapText="true"/>
+                <Label fx:id="phoneError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <Label fx:id="walletNote" styleClass="info-banner" wrapText="true"
+                   text="После сохранения клиенту автоматически выпускается кошелёк с картой «Мир»: баланс 0 ₽, статус «Активен», лимит переводов 100 000 ₽ в день, срок действия 3 года."/>
+            <Label fx:id="generalError" styleClass="form-error-banner" wrapText="true"/>
+        </VBox>
+    </content>
+    <buttonTypes>
+        <ButtonType fx:id="saveButtonType" text="Сохранить" buttonData="OK_DONE"/>
+        <ButtonType text="Отмена" buttonData="CANCEL_CLOSE"/>
+    </buttonTypes>
+</DialogPane>

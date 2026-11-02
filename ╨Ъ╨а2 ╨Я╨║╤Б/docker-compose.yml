@@ -1,0 +1,28 @@
+# База данных КР №1. Тот же проект, контейнер и том, что в папке ПКС_кр1,
+# поэтому КР №1 и КР №2 работают с одними и теми же данными.
+# С компьютера база доступна на порту 5433: порт 5432 может быть занят
+# локально установленным PostgreSQL (например, Postgres.app).
+name: electronic-wallet
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: electronic-wallet-db
+    environment:
+      POSTGRES_DB: wallet_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - wallet_pg_data:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./sql/data.sql:/docker-entrypoint-initdb.d/02-data.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d wallet_db"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  wallet_pg_data:

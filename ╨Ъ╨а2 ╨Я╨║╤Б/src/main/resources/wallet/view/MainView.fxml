@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="wallet.controller.MainController" styleClass="app-root">
+    <top>
+        <HBox styleClass="app-header" alignment="CENTER_LEFT">
+            <Label text="₽" styleClass="app-logo"/>
+            <VBox spacing="2">
+                <Label text="Электронный кошелёк" styleClass="app-title"/>
+                <Label text="Клиенты, кошельки с картами «Мир» и операции по ним" styleClass="app-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="connectionLabel" text="● Подключение к базе данных…" styleClass="connection-badge"/>
+            <Button text="Обновить данные" onAction="#loadData" styleClass="header-button">
+                <tooltip>
+                    <Tooltip text="Перечитать данные из PostgreSQL (F5)"/>
+                </tooltip>
+            </Button>
+        </HBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" styleClass="main-tabs">
+            <Tab text="Клиенты">
+                <content>
+                    <fx:include fx:id="clientsView" source="ClientsTab.fxml"/>
+                </content>
+            </Tab>
+            <Tab text="Кошельки">
+                <content>
+                    <fx:include fx:id="walletsView" source="WalletsTab.fxml"/>
+                </content>
+            </Tab>
+            <Tab fx:id="transactionsTab" text="Операции">
+                <content>
+                    <fx:include fx:id="transactionsView" source="TransactionsTab.fxml"/>
+                </content>
+            </Tab>
+            <Tab text="Статистика">
+                <content>
+                    <fx:include fx:id="statisticsView" source="StatisticsTab.fxml"/>
+                </content>
+            </Tab>
+        </TabPane>
+    </center>
+    <bottom>
+        <HBox styleClass="status-bar" alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="summaryLabel"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="messageLabel" styleClass="status-message"/>
+        </HBox>
+    </bottom>
+</BorderPane>

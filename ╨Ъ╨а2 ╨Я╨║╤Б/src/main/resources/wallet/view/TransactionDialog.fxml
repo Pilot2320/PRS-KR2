@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane fx:id="dialogPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="wallet.controller.TransactionDialogController"
+            stylesheets="@styles.css" styleClass="form-dialog" prefWidth="560">
+    <content>
+        <VBox spacing="14">
+            <VBox styleClass="form-field">
+                <Label text="Кошелёк *" styleClass="form-label"/>
+                <ComboBox fx:id="walletBox" promptText="Выберите кошелёк" maxWidth="Infinity"/>
+                <Label fx:id="walletInfo" styleClass="hint" wrapText="true"/>
+                <Label fx:id="walletError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="form-field">
+                <Label text="Тип операции *" styleClass="form-label"/>
+                <ComboBox fx:id="typeBox" maxWidth="Infinity"/>
+                <Label fx:id="typeHint" styleClass="hint" wrapText="true"/>
+                <Label fx:id="typeError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="form-field">
+                <Label text="Сумма, ₽ *" styleClass="form-label"/>
+                <TextField fx:id="amountField" promptText="Например, 1500,50"/>
+                <Label text="Больше 0 и не больше 1 000 000 ₽, до двух знаков после запятой." styleClass="hint" wrapText="true"/>
+                <Label fx:id="amountError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <VBox fx:id="targetBlock" styleClass="form-field">
+                <Label text="Кошелёк получателя *" styleClass="form-label"/>
+                <ComboBox fx:id="targetBox" promptText="Выберите получателя" maxWidth="Infinity"/>
+                <Label fx:id="targetInfo" styleClass="hint" wrapText="true"/>
+                <Label fx:id="targetError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="form-field">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Описание" styleClass="form-label"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="descriptionCounter" styleClass="hint"/>
+                </HBox>
+                <TextArea fx:id="descriptionArea" promptText="Необязательно. Например: оплата коммунальных услуг"
+                          prefRowCount="3" wrapText="true"/>
+                <Label fx:id="descriptionError" styleClass="field-error-text" wrapText="true"/>
+            </VBox>
+            <Label fx:id="generalError" styleClass="form-error-banner" wrapText="true"/>
+        </VBox>
+    </content>
+    <buttonTypes>
+        <ButtonType fx:id="saveButtonType" text="Провести операцию" buttonData="OK_DONE"/>
+        <ButtonType text="Отмена" buttonData="CANCEL_CLOSE"/>
+    </buttonTypes>
+</DialogPane>

@@ -1,0 +1,586 @@
+/* ===== Палитра и базовые настройки ===== */
+.root {
+    -color-primary: #3b5bdb;
+    -color-primary-dark: #2f4ac0;
+    -color-danger: #e03131;
+    -color-success: #2b8a3e;
+    -color-text: #1f2937;
+    -color-muted: #6b7280;
+    -color-border: #dde2ec;
+    -color-surface: #ffffff;
+    -color-background: #f3f5fa;
+
+    -fx-font-size: 13px;
+    -fx-accent: -color-primary;
+    -fx-focus-color: -color-primary;
+    -fx-faint-focus-color: rgba(59, 91, 219, 0.18);
+}
+
+.app-root {
+    -fx-background-color: -color-background;
+}
+
+.muted {
+    -fx-text-fill: -color-muted;
+}
+
+/* ===== Шапка и строка состояния ===== */
+.app-header {
+    -fx-background-color: linear-gradient(to right, #1e2a4a, #34478a);
+    -fx-padding: 14 20;
+    -fx-spacing: 14;
+}
+
+.app-logo {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-radius: 10;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.app-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.app-subtitle {
+    -fx-text-fill: #c5cff0;
+}
+
+.connection-badge {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-radius: 12;
+    -fx-padding: 4 12;
+    -fx-text-fill: white;
+}
+
+.connection-ok {
+    -fx-background-color: rgba(47, 158, 68, 0.9);
+}
+
+.connection-error {
+    -fx-background-color: rgba(224, 49, 49, 0.9);
+}
+
+.header-button {
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-text-fill: white;
+}
+
+.header-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.22);
+}
+
+.status-bar {
+    -fx-background-color: #e9edf5;
+    -fx-border-color: -color-border transparent transparent transparent;
+    -fx-padding: 6 16;
+}
+
+.status-bar .label {
+    -fx-text-fill: #4b5563;
+}
+
+.status-message {
+    -fx-font-weight: bold;
+}
+
+/* ===== Вкладки ===== */
+.main-tabs > .tab-header-area {
+    -fx-padding: 10 16 0 16;
+}
+
+.main-tabs > .tab-header-area > .tab-header-background {
+    -fx-background-color: -color-background;
+}
+
+.main-tabs > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 6 18;
+}
+
+.main-tabs > .tab-header-area > .headers-region > .tab:hover {
+    -fx-background-color: #e6eaf4;
+}
+
+.main-tabs > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: -color-surface;
+}
+
+.main-tabs .tab .tab-label {
+    -fx-text-fill: #4b5563;
+    -fx-font-size: 14px;
+}
+
+.main-tabs .tab:selected .tab-label {
+    -fx-text-fill: -color-primary;
+    -fx-font-weight: bold;
+}
+
+.main-tabs .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab-body {
+    -fx-background-color: -color-surface;
+    -fx-padding: 14 16 10 16;
+}
+
+.tab-top {
+    -fx-padding: 0 0 12 0;
+}
+
+.statistics-scroll,
+.statistics-scroll > .viewport {
+    -fx-background-color: -color-surface;
+}
+
+/* ===== Кнопки ===== */
+.button {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 6;
+    -fx-border-color: #cfd6e4;
+    -fx-border-radius: 6;
+    -fx-padding: 6 14;
+    -fx-text-fill: -color-text;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #f1f4fa;
+}
+
+.button:pressed {
+    -fx-background-color: #e3e8f2;
+}
+
+.button:focused {
+    -fx-border-color: -color-primary;
+}
+
+.button:disabled {
+    -fx-opacity: 0.45;
+}
+
+.button-primary,
+.dialog-pane .button:default {
+    -fx-background-color: -color-primary;
+    -fx-border-color: -color-primary;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button-primary:hover,
+.dialog-pane .button:default:hover {
+    -fx-background-color: -color-primary-dark;
+}
+
+.button-danger {
+    -fx-text-fill: #c92a2a;
+    -fx-border-color: #f3b4b4;
+}
+
+.button-danger:hover {
+    -fx-background-color: #fff0f0;
+}
+
+.dialog-pane .button-danger:default {
+    -fx-background-color: white;
+    -fx-text-fill: #c92a2a;
+    -fx-border-color: #f3b4b4;
+}
+
+.button-link {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: -color-primary;
+    -fx-padding: 6 6;
+}
+
+.button-link:hover {
+    -fx-background-color: transparent;
+    -fx-underline: true;
+}
+
+/* ===== Панели поиска и фильтров ===== */
+.filter-bar {
+    -fx-background-color: #f8f9fc;
+    -fx-background-radius: 8;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 8;
+    -fx-padding: 10 12;
+    -fx-alignment: center-left;
+}
+
+.filter-label {
+    -fx-text-fill: -color-muted;
+}
+
+.filter-error {
+    -fx-text-fill: #c92a2a;
+    -fx-background-color: #fff5f5;
+    -fx-background-radius: 6;
+    -fx-padding: 6 10;
+}
+
+.count-label {
+    -fx-text-fill: -color-muted;
+    -fx-padding: 8 2 0 2;
+}
+
+/* ===== Таблицы ===== */
+.table-view {
+    -fx-background-color: -color-border, white;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8;
+    -fx-padding: 1;
+    -fx-table-cell-border-color: #eef0f5;
+    -fx-selection-bar: #dbe4ff;
+    -fx-selection-bar-non-focused: #e7ecff;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f4f6fb;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-size: 36px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #4b5563;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    -fx-padding: 0 4;
+}
+
+.table-row-cell {
+    -fx-background: white;
+    -fx-cell-size: 34px;
+}
+
+.table-row-cell:odd {
+    -fx-background: #fafbfe;
+}
+
+.table-row-cell:hover {
+    -fx-background: #f0f3ff;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background: #dbe4ff;
+}
+
+.table-cell {
+    -fx-padding: 0 8;
+    -fx-alignment: center-left;
+}
+
+.table-cell.align-right {
+    -fx-alignment: center-right;
+}
+
+.table-view .placeholder .label {
+    -fx-font-size: 14px;
+}
+
+.amount-in {
+    -fx-text-fill: #2b8a3e;
+    -fx-font-weight: bold;
+}
+
+.amount-out {
+    -fx-text-fill: #c92a2a;
+    -fx-font-weight: bold;
+}
+
+.text-danger {
+    -fx-text-fill: #c92a2a;
+}
+
+/* ===== Плашки статусов и типов ===== */
+.badge {
+    -fx-padding: 2 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.badge-active {
+    -fx-background-color: #d3f9d8;
+    -fx-text-fill: #2b8a3e;
+}
+
+.badge-blocked {
+    -fx-background-color: #fff3bf;
+    -fx-text-fill: #d9480f;
+}
+
+.badge-closed {
+    -fx-background-color: #e9ecef;
+    -fx-text-fill: #495057;
+}
+
+.badge-top-up {
+    -fx-background-color: #d3f9d8;
+    -fx-text-fill: #2b8a3e;
+}
+
+.badge-transfer {
+    -fx-background-color: #dbe4ff;
+    -fx-text-fill: #364fc7;
+}
+
+.badge-withdrawal {
+    -fx-background-color: #ffe8cc;
+    -fx-text-fill: #d9480f;
+}
+
+/* ===== Карточка клиента ===== */
+.content-split {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.content-split > .split-pane-divider {
+    -fx-background-color: transparent;
+    -fx-padding: 0 5;
+}
+
+.details-scroll,
+.details-scroll > .viewport {
+    -fx-background-color: #f8f9fc;
+    -fx-background-radius: 8;
+}
+
+.details-scroll {
+    -fx-border-color: -color-border;
+    -fx-border-radius: 8;
+}
+
+.details-pane {
+    -fx-padding: 16;
+}
+
+.details-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.details-key {
+    -fx-text-fill: -color-muted;
+}
+
+.details-value {
+    -fx-font-weight: bold;
+}
+
+.section-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 0 0 0;
+}
+
+.wallet-card {
+    -fx-background-color: linear-gradient(to bottom right, #364fc7, #6741d9);
+    -fx-background-radius: 14;
+    -fx-padding: 16 18;
+    -fx-effect: dropshadow(gaussian, rgba(54, 79, 199, 0.35), 12, 0, 0, 4);
+}
+
+.card-brand {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.card-number {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-family: "Monospaced";
+}
+
+.card-text {
+    -fx-text-fill: #e5dbff;
+}
+
+.card-balance {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.operations-list {
+    -fx-background-color: -color-border, white;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8;
+}
+
+.operations-list .list-cell {
+    -fx-padding: 6 10;
+}
+
+.operations-list .list-cell:filled:selected .label {
+    -fx-text-fill: white;
+}
+
+/* ===== Статистика ===== */
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 10;
+    -fx-padding: 14 16;
+    -fx-effect: dropshadow(gaussian, rgba(31, 42, 68, 0.06), 8, 0, 0, 2);
+}
+
+.stat-title {
+    -fx-text-fill: -color-muted;
+    -fx-font-size: 12px;
+}
+
+.stat-value {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.stat-note {
+    -fx-text-fill: -color-muted;
+    -fx-font-size: 11px;
+}
+
+.chart-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+}
+
+.chart-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.default-color0.chart-pie {
+    -fx-pie-color: #40c057;
+}
+
+.default-color1.chart-pie {
+    -fx-pie-color: #fab005;
+}
+
+.default-color2.chart-pie {
+    -fx-pie-color: #adb5bd;
+}
+
+/* BarChart сам назначает столбцам классы data0, data1, data2 по порядку: пополнения, переводы, выводы. */
+#typeChart .chart-bar.data0 {
+    -fx-bar-fill: #40c057;
+}
+
+#typeChart .chart-bar.data1 {
+    -fx-bar-fill: #4c6ef5;
+}
+
+#typeChart .chart-bar.data2 {
+    -fx-bar-fill: #fd7e14;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+/* ===== Формы и диалоги ===== */
+.dialog-pane {
+    -fx-background-color: white;
+}
+
+.dialog-pane > .header-panel {
+    -fx-background-color: #f4f6fb;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-padding: 14 18;
+}
+
+.dialog-pane > .header-panel .label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane > .content {
+    -fx-padding: 16 18;
+}
+
+.dialog-pane > .button-bar > .container {
+    -fx-padding: 10 18 14 18;
+}
+
+.form-field {
+    -fx-spacing: 4;
+}
+
+.form-label {
+    -fx-font-weight: bold;
+}
+
+.hint {
+    -fx-text-fill: -color-muted;
+    -fx-font-size: 11px;
+}
+
+.field-error-text {
+    -fx-text-fill: #c92a2a;
+    -fx-font-size: 12px;
+}
+
+.text-field.field-invalid,
+.text-area.field-invalid .content,
+.combo-box-base.field-invalid {
+    -fx-background-color: #e03131, #fff5f5;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 4, 3;
+}
+
+.text-area.field-invalid {
+    -fx-background-color: #e03131;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+}
+
+.label.field-invalid {
+    -fx-text-fill: #c92a2a;
+}
+
+.info-banner {
+    -fx-background-color: #edf2ff;
+    -fx-background-radius: 6;
+    -fx-text-fill: #364fc7;
+    -fx-padding: 8 10;
+}
+
+.form-error-banner {
+    -fx-background-color: #fff5f5;
+    -fx-border-color: #ffc9c9;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-text-fill: #c92a2a;
+    -fx-padding: 8 10;
+}
+
+.info-grid {
+    -fx-background-color: #f8f9fc;
+    -fx-background-radius: 8;
+    -fx-padding: 10 12;
+}
